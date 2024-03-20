@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Login;
+using InfoUser;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -51,8 +52,9 @@ public class LoginForm : MonoBehaviour
             else
             {
                 var jsonResult = Encoding.Default.GetString(www.downloadHandler.data);
-                var test = user.fromToJson(jsonResult);
-                Debug.Log("Form upload complete! " + test.token);
+                UserInfo userInfo = new UserInfo();
+                userInfo = userInfo.fromToJson(jsonResult);
+                Debug.Log("Form upload complete! " + userInfo.token);
             }
         }
     }

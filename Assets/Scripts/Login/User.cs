@@ -26,3 +26,27 @@ namespace Login
         
     }
 }
+
+namespace InfoUser
+{
+    public class UserInfo
+    {
+        public string username;
+        public string token;
+
+        public UserInfo()
+        {
+        }
+
+        public string SaveToString()
+        {
+            return JsonUtility.ToJson(this);
+        }
+
+        public UserInfo fromToJson(string json)
+        {
+            return JsonUtility.FromJson<UserInfo>(json);
+        }
+        
+    }
+}
